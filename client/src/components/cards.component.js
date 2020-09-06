@@ -25,14 +25,7 @@ export default class CardsList extends Component {
                 console.log(error);
             })
     }
-
-    cardList() {
-        return this.state.cards.map(function(currentCard, i){
-            return <Card card={currentCard} key={i} />;
-        })
-    }
-    
-
+      
     render() {
         return (
             <div>
