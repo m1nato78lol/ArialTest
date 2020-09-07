@@ -45,6 +45,7 @@ export default class CardsList extends Component {
             console.log(error);
         })
         this.setState({activePage: pageNumber});
+        this.props.history.push('/cards?page='+pageNumber);
       }
 
     render() {
@@ -68,8 +69,7 @@ export default class CardsList extends Component {
               
                </div>
 
-               <br/>
-               <div>
+               <br/>    
               
         <Pagination
         hideFirstLastPages
@@ -79,13 +79,8 @@ export default class CardsList extends Component {
         totalItemsCount={27}
         itemClass="page-item"
         linkClass="page-link"
-        onChange={this.handlePageChange.bind(this)}
-        />
-       
-      </div>
-
-                            
-                      
+        onChange={this.handlePageChange.bind(this)} 
+        />          
                    
          </div>
         )

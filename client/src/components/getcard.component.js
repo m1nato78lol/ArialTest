@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -54,7 +55,7 @@ export default class GetCard extends Component {
                 </ul>
     
                 <h3 align="left">
-                <a href="/cards" >Назад</a>  
+                <Link to={"/cards?page=1"} class="btn btn-primary">Назад</Link>  
                      </h3>
 
                 

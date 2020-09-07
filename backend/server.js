@@ -19,11 +19,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/cards', function (err) {
   
  });
 cardRoutes.route('/').get(function(req, res) {
-  var page = parseInt(req.query.page) || 1
-  var size = 4
-  var query = {}
-  query.skip = size * (page - 1)
-  query.limit = size
+  var page = parseInt(req.query.page) || 1;
+  var size = 4;
+  var query = {};
+  query.skip = size * (page - 1);
+  query.limit = size;
       Card.find({},{},query,function(err,card)  {
         if (err) {
             console.log(err);
@@ -36,7 +36,7 @@ cardRoutes.route('/').get(function(req, res) {
 
 
 cardRoutes.route('/:id').get(function(req, res) {
-    let id = req.params.id;
+    var id = req.params.id;
     Card.findById(id, function(err, card) {
         res.json(card);
     });

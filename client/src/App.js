@@ -18,6 +18,9 @@ class App extends Component {
               <img src={logo} width="30" height="30"  />
             </a>
             <div className="navbar-brand">CardsList App</div>
+            <a className="navbar-item">
+                  <Link to="/cards?page=1" className="nav-link">Карточки</Link>
+                </a>
           </nav>
           <br/>
        
