@@ -69,7 +69,7 @@ export default class CardsList extends Component {
                </div>
 
                <br/>
-               <div class="pagination">
+               <div>
               
         <Pagination
         hideFirstLastPages
