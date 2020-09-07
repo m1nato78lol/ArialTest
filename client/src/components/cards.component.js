@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import logo from "../logo.png";
 
 const Card = props => (
     <ul>
+        <img src={logo} class="card-img-top" alt="CodingTheSmartWay.com"></img>
         <li>First Name: {props.card.card_firstname}</li>
         <li>Last Name: {props.card.card_lastname}</li> 
+        <br/>
+        <Link to={"/get/"+props.card._id} class="btn btn-primary">Подробнее</Link>
     </ul>
 )
  
@@ -40,8 +44,6 @@ export default class CardsList extends Component {
                 <div class="card-body">
                 <h5 class="card-title">Card</h5>
                 <Card card={item}  />
-     
-                <a href="#" class="btn btn-primary">Подробнее</a>
                 </div>
       </div>
     </div>

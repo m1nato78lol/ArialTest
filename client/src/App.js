@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from 'axios';
 import logo from "./logo.png";
 
 import GetCard from "./components/getcard.component";
@@ -36,7 +35,7 @@ class App extends Component {
        
 
         <Route path="/" exact component={CardsList} />
-        <Route path="/getCard/:id" component={GetCard} />
+        <Route path="/get/:id" component={GetCard} />
         <Route path="/add" component={AddCard} />
         </div>
       </Router>
