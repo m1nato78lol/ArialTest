@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 let Card = new Schema({
-    
+  
     card_firstname: {
         type: String,
         required:true
@@ -24,5 +25,4 @@ let Card = new Schema({
         required:true
     }
 });
-
 module.exports = mongoose.model('Card', Card);

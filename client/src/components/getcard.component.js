@@ -43,17 +43,18 @@ export default class GetCard extends Component {
                 <ul class="list-group" >
                 <div class="col-5" > 
                 <p class="text-monospace" >
+                <li ><img src={this.state.card_image} class="card-img-top" ></img></li><br/>
                 <li class="list-group-item list-group-item-success" align="left">First Name: {this.state.card_firstname}</li><br/>
                 <li class="list-group-item list-group-item-success" align="left">Last Name: {this.state.card_lastname}</li><br/>
                 <li class="list-group-item list-group-item-success" align="left">Email: {this.state.card_email}</li><br/>
                 <li class="list-group-item list-group-item-success" align="left">Gender: {this.state.card_gender}</li><br/>
-                <li class="list-group-item list-group-item-success" align="left">Image: {this.state.card_image}</li>
+                
                 </p>
                 </div>
                 </ul>
     
                 <h3 align="left">
-                <a href="/" >Назад</a>  
+                <a href="/cards" >Назад</a>  
                      </h3>
 
                 

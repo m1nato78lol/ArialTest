@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Pagination from "react-js-pagination";
 import axios from 'axios';
-import logo from "../logo.png";
 
 const Card = props => (
     <ul>
-        <img src={logo} class="card-img-top" alt="CodingTheSmartWay.com"></img>
+        <img src={props.card.card_image} class="card-img-top" ></img>
         <li>First Name: {props.card.card_firstname}</li>
         <li>Last Name: {props.card.card_lastname}</li> 
         <br/>
@@ -17,19 +17,36 @@ export default class CardsList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {cards: []};
+        this.state = {cards: [],
+            activePage: 1
+        };
+
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/cards/')
+      
+        axios.get('http://localhost:4000/cards/?page='+this.state.activePage)
             .then(response => {
-                this.setState({ cards: response.data });
+                this.setState({cards: response.data.cards });
+                
             })
             .catch(function (error){
                 console.log(error);
             })
     }
-      
+        
+    handlePageChange(pageNumber) {
+        axios.get('http://localhost:4000/cards/?page='+pageNumber)
+        .then(response => {
+            this.setState({cards: response.data.cards });
+            
+        })
+        .catch(function (error){
+            console.log(error);
+        })
+        this.setState({activePage: pageNumber});
+      }
+
     render() {
         return (
             <div>
@@ -50,6 +67,22 @@ export default class CardsList extends Component {
                ))}
               
                </div>
+
+               <br/>
+               <div class="pagination">
+              
+        <Pagination
+        hideFirstLastPages
+        activePage={this.state.activePage}
+        pageRangeDisplayed={9}
+        itemsCountPerPage={3}
+        totalItemsCount={27}
+        itemClass="page-item"
+        linkClass="page-link"
+        onChange={this.handlePageChange.bind(this)}
+        />
+       
+      </div>
 
                             
                       

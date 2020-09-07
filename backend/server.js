@@ -19,14 +19,21 @@ mongoose.connect('mongodb://127.0.0.1:27017/cards', function (err) {
   
  });
 cardRoutes.route('/').get(function(req, res) {
-    Card.find(function(err, cards) {
+  var page = parseInt(req.query.page) || 1
+  var size = 4
+  var query = {}
+  query.skip = size * (page - 1)
+  query.limit = size
+      Card.find({},{},query,function(err,card)  {
         if (err) {
             console.log(err);
         } else {
-            res.json(cards);
+            response={"cards" : card};
+            res.json(response);
         }
     });
 });
+
 
 cardRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
@@ -35,16 +42,6 @@ cardRoutes.route('/:id').get(function(req, res) {
     });
 });
 
-cardRoutes.route('/add').post(function(req, res) {
-    let card = new Card(req.body);
-    card.save()
-        .then(card => {
-            res.status(200).json({'card': 'card added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new card failed');
-        });
-});
 
 app.use('/cards',cardRoutes);
 

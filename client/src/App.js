@@ -5,7 +5,6 @@ import logo from "./logo.png";
 
 import GetCard from "./components/getcard.component";
 import CardsList from "./components/cards.component";
-import AddCard from "./components/addcard.component";
 
 
 class App extends Component {
@@ -15,28 +14,16 @@ class App extends Component {
         
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="https://codingthesmartway.com" target="_blank">
-              <img src={logo} width="30" height="30" alt="CodingTheSmartWay.com" />
+            <a class="navbar-brand"target="_blank">
+              <img src={logo} width="30" height="30"  />
             </a>
-            <Link to="/" className="navbar-brand">CardsList App</Link>
-            <div className="collpase navbar-collapse">
-              <ul className="navbar-nav mr-auto">
-                <li className="navbar-item">
-                  <Link to="/" className="nav-link">Cards</Link>
-                </li>
-                <li className="navbar-item">
-                  <Link to="/add" className="nav-link">Create Card</Link>
-                </li>
-               
-              </ul>
-            </div>
+            <div className="navbar-brand">CardsList App</div>
           </nav>
           <br/>
        
-
-        <Route path="/" exact component={CardsList} />
+       
+        <Route path="/cards" component={CardsList} />
         <Route path="/get/:id" component={GetCard} />
-        <Route path="/add" component={AddCard} />
         </div>
       </Router>
     );
